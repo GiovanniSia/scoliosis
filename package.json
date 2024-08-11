@@ -1,0 +1,16 @@
+{
+  "name": "scoliosis",
+  "version": "1.0.0",
+  "main": "standUp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "node-notifier": "^10.0.1",
+    "node-wav-player": "^1.0.0"
+  }
+}
