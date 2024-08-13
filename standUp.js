@@ -3,26 +3,32 @@ const player = require('node-wav-player');
 const path = require('path');
 
 const soundPath = path.join(__dirname, 'messi.wav');
+const videoPath = path.join(__dirname, 'video.mp4');
 
 function remindToStandUp() {
-    setInterval(() => {
+    setInterval(async () => {
         // Mostrar notificación
         notifier.notify({
             title: '¡Hora de levantarse!',
             message: 'Has estado sentado durante una hora. Es hora de moverse un poco.',
-            sound: false, // No reproducir sonido con node-notifier
+            sound: false,
             wait: false
         });
 
         // Reproducir sonido
-        player.play({
-            path: soundPath
-        }).then(() => {
+        try {
+            await player.play({ path: soundPath });
             console.log('Sonido reproducido.');
-        }).catch((error) => {
-            console.error('Error al reproducir el sonido:', error);
-        });
-    }, 10 * 1000); // Ajusta el intervalo para pruebas
+
+            // Cargar y mostrar video dinámicamente
+            const open = await import('open');
+            await open.default(videoPath);
+            console.log('Video mostrado.');
+        } catch (error) {
+            console.error('Error al reproducir el sonido o mostrar el video:', error);
+        }
+
+    }, 100 * 1000);
 }
 
 remindToStandUp();

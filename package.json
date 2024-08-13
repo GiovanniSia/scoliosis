@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "node-notifier": "^10.0.1",
-    "node-wav-player": "^1.0.0"
+    "node-wav-player": "^1.0.0",
+    "open": "^10.1.0"
   }
 }
