@@ -28,7 +28,7 @@ function remindToStandUp() {
             console.error('Error al reproducir el sonido o mostrar el video:', error);
         }
 
-    }, 100 * 1000);
+    }, 1800 * 1000);
 }
 
 remindToStandUp();
